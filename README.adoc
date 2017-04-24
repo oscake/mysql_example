@@ -1,0 +1,48 @@
+This Spring application launches a server that handles requests to a table of
+particles in a mysql database called my_database. Each particle has a name,
+a mass (in MeV) and a electromagnetic charge. A particle can not be added to
+the table if one with the same name already exist. The user (username db_user
+and password db_password) can add and delete particles, as well as searching
+for particles with a mass greater or less than a given value, or with a given
+charge.
+
+The adding particles can be done via a GET or a POST request (the POST request
+only works with curl and postman, but not with Advanced REST client,
+and I can not figure out why).
+Deleting particles are done with DELETE requests and quering the database with
+GET requests.
+
+The Particle entities have the following fields
+
+name - String
+mass - double
+charge - double
+
+The following request are available:
+
+POST:
+
+  URI: /demo/post
+  header: Content-Type:application/json
+  raw data: {"name" : "name-of-particle", "mass" : mass, "charge" : charge}
+
+DELETE
+
+  URI: /demo/delete?name=name-of-particle
+
+GET:
+
+  URI: /demo/add?name=name-of-particle&mass=mass&charge=charge
+
+  URI: /demo/all
+
+  URI: /demo/findByName?name=name
+
+  URI: /demo/findByMassGtr?mass=mass
+
+  URI: /demo/findByMassLess?mass=mass
+
+  URI: /demo/findByCharge?mass=charge
+
+
+  
