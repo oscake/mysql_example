@@ -42,7 +42,12 @@ GET:
 
   URI: /demo/findByMassLess?mass=mass
 
-  URI: /demo/findByCharge?mass=charge
+  URI: /demo/findByCharge?charge=charge
 
+The application can be compiled with maven3 and includes some unit tests
+
+Prior to running the application a database named my_database has to be created
+and the user db_user, with password db_password needs to be given all rights
+for this database.
 
   
